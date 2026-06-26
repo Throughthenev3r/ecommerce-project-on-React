@@ -1,118 +1,30 @@
 # Ecommerce Project on React
 
-Фронтенд интернет-магазина: каталог товаров, корзина, оформление заказа, история заказов и отслеживание доставки.
+Frontend for a simple online store — browse products, add to cart, checkout, view orders, track delivery.
 
-Проект построен на **React 19** с **TypeScript**, **Vite** и **React Router 7**. Данные и изображения приходят с отдельного backend-сервера через API-прокси.
+Built with React 19, TypeScript, Vite, and React Router. Data comes from a separate backend via `/api` and `/images` proxy.
 
-## Возможности
-
-- Просмотр каталога товаров
-- Добавление товаров в корзину
-- Оформление заказа (checkout)
-- Просмотр истории заказов
-- Отслеживание доставки
-- Адаптивная шапка с поиском и счётчиком корзины
-
-## Стек технологий
-
-| Категория | Технологии |
-|-----------|------------|
-| UI | React 19, React Router 7 |
-| Язык | TypeScript, JSX |
-| Сборка | Vite 6 |
-| HTTP | Axios |
-| Даты | Day.js |
-| Тесты | Vitest, Testing Library |
-| Оптимизация | React Compiler (babel-plugin-react-compiler) |
-
-## Требования
-
-- [Node.js](https://nodejs.org/) 18+
-- npm
-- Запущенный backend на `http://localhost:3000` (API и статические изображения)
-
-## Быстрый старт
-
-### 1. Установка зависимостей
+## Setup
 
 ```bash
 npm install
-```
-
-### 2. Запуск backend
-
-Фронтенд проксирует запросы `/api` и `/images` на backend. Без него страница откроется, но данные и картинки не загрузятся.
-
-```bash
-# в отдельном терминале, из папки backend-проекта
 npm run dev
 ```
 
-### 3. Запуск фронтенда
+App runs at http://localhost:5173
 
-```bash
-npm run dev
-```
+You also need the backend running on `http://localhost:3000`, otherwise products and images won't load. Start it in a separate terminal from the backend repo.
 
-Приложение будет доступно по адресу: [http://localhost:5173](http://localhost:5173)
+## Scripts
 
-## Скрипты
+- `npm run dev` — dev server
+- `npm run build` — production build
+- `npm run lint` — eslint
+- `npx vitest` — run tests
 
-| Команда | Описание |
-|---------|----------|
-| `npm run dev` | Dev-сервер с hot reload |
-| `npm run build` | Проверка TypeScript и production-сборка |
-| `npm run preview` | Просмотр production-сборки локально |
-| `npm run lint` | Проверка кода ESLint |
-| `npx vitest` | Запуск тестов |
+## Pages
 
-## Маршруты
-
-| Путь | Страница |
-|------|----------|
-| `/` | Главная — каталог товаров |
-| `/checkout` | Корзина и оформление заказа |
-| `/orders` | История заказов |
-| `/tracking` | Отслеживание доставки |
-
-## Структура проекта
-
-```
-src/
-├── components/       # Общие компоненты (Header и др.)
-├── pages/
-│   ├── home/         # Главная страница и карточки товаров
-│   ├── checkout/     # Оформление заказа
-│   ├── orders/       # Заказы
-│   └── TrackingPage  # Отслеживание
-├── utils/            # Утилиты (форматирование цен и т.д.)
-├── App.tsx           # Маршрутизация и состояние корзины
-└── main.tsx          # Точка входа
-```
-
-## Конфигурация прокси
-
-В `vite.config.ts` настроен прокси для разработки:
-
-- `/api` → `http://localhost:3000`
-- `/images` → `http://localhost:3000`
-
-Production-сборка по умолчанию выводится в `../ecommerce-backend/dist`, чтобы backend мог отдавать статику вместе с API.
-
-## Тесты
-
-```bash
-npx vitest
-```
-
-Покрыты утилиты и ключевые компоненты страницы товаров.
-
-## Сборка для production
-
-```bash
-npm run build
-```
-
-## Лицензия
-
-Учебный проект. Свободное использование в образовательных целях.
+- `/` — home / products
+- `/checkout` — cart & checkout
+- `/orders` — order history
+- `/tracking` — delivery tracking
